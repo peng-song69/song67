@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-b7)(mgjvj6_9y6%3l(m6lc3bjfx=3q3cn%&dj83fj!s!d%h(0%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pengsong.pythonanywhere.com', 'local host', '127.0.0.1']
 
 
 # Application definition
@@ -132,3 +132,11 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://pengsong.pythonanywhere.com',
+    'http://pengsong.pythonanywhere.com',
+]
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Detail</title>
+    <style>
+        .warning { color: red; font-weight: bold; }
+        .info { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Product: {{ product.name }}</h1>
+
+    <div class="info">
+        <p><strong>Category:</strong> {{ product.category }}</p>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <p><strong>Barcode:</strong> {{ product.barcode }}</p>
+        
+        <p><strong>Stock Status:</strong> 
+            {% if product.stock < 10 %}
+                <span class="warning">Low Stock: Only {{ product.stock }} left!</span>
+            {% else %}
+                {{ product.stock }} units available
+            {% endif %}
+        </p>
+    </div>
+
+    <hr>
+    <a href="{% url 'product_list' %}">Back to Product List</a>
+</body>
+</html>
